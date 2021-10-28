@@ -135,20 +135,23 @@
       <div class="keypair">
         <p id="message-output">Initializing...</p>
         <p>
-          <label for="password"
-            ><span>Password: </span>
-            <input
-              type="password"
-              id="password"
-              value="password"
-              style="width: 18em;"
-          /></label>
+          <label for="password">
+            <span>Password: </span>
+            <span>
+              <input type="password" id="password" value="password"
+            /></span>
+          </label>
         </p>
         <p>
-          <label for="salt"
-            ><span>Salt: </span
-            ><input type="text" id="salt" style="width: 18em;" /></label
-          ><br />
+          <label for="salt">
+            <span>Salt: </span>
+            <span>
+              <input type="text" id="salt" />
+              <em class="small">
+                TODO: Replace with salt derived from identity + password
+              </em>
+            </span>
+          </label>
         </p>
         <p>
           <button id="generate-userkey">Generate User Key</button>

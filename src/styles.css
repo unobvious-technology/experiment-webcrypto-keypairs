@@ -19,6 +19,10 @@ a {
   color: #0090ff;
 }
 
+.small {
+  font-size: 0.7em;
+}
+
 #forkme_banner {
   display: block;
   position: absolute;
@@ -49,18 +53,33 @@ a {
 
 p > label {
   display: flex;
-  flex-grow: 1;
-  flex-basis: end;
+  align-items: stretch;
 }
 
 p > label > span {
-  width: 8em;
   padding: 0.3em 0em;
 }
 
-p > label > input {
-  flex-grow: 2;
+p > label > span:nth-child(1) {
+  width: 8em;
+  align-content: flex-start;
+}
+
+p > label > span:nth-child(2) {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
   padding: 0.3em 0.4em;
+  flex-grow: 1;
+}
+
+p > label > span:nth-child(2) > input {
+  display: flex;
+  flex-grow: 1;
+}
+
+p > label > span:nth-child(2) > em {
+  margin-top: 0.2em;
 }
 
 textarea {
