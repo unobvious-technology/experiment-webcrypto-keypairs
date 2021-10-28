@@ -1,7 +1,6 @@
 {
-  "name": "vanilla",
+  "name": "experiment-webcrypto-keypairs",
   "version": "1.0.0",
-  "description": "JavaScript example starter project",
   "main": "index.html",
   "scripts": {
     "start": "parcel index.html --open",
@@ -18,5 +17,5 @@
     "@babel/preset-env": "7.13.8"
   },
   "browserslist": ["since 2017-06"],
-  "keywords": ["javascript", "starter"]
+  "keywords": []
 }
