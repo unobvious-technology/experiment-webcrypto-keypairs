@@ -1,3 +1,77 @@
 body {
   font-family: sans-serif;
+  padding-top: 3em;
+  color: #030303;
+}
+
+#app {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+h2 {
+  margin-top: 2em;
+  vertical-align: middle;
+}
+
+a {
+  color: #0090ff;
+}
+
+#forkme_banner {
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 10px;
+  z-index: 10;
+  padding: 10px 50px 10px 10px;
+  color: #fff;
+  background: url("../public/blacktocat.png") #0090ff no-repeat 95%
+    calc(100% - 0.4em);
+  font-weight: 700;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  text-decoration: none;
+  transition: padding-top 0.1s linear;
+}
+
+#forkme_banner:hover {
+  padding-top: 16px;
+}
+
+#message-output {
+  background: #dfdfdf;
+  padding: 1em;
+  margin-bottom: 2em;
+}
+
+p > label {
+  display: flex;
+  flex-grow: 1;
+  flex-basis: end;
+}
+
+p > label > span {
+  width: 8em;
+  padding: 0.3em 0em;
+}
+
+p > label > input {
+  flex-grow: 2;
+  padding: 0.3em 0.4em;
+}
+
+textarea {
+  font-family: monospace;
+  padding: 0.3em 0.3em;
+  width: calc(100% - 0.6em - 2px);
+}
+
+button {
+  padding: 0.3em 0.4em;
+}
+
+#reset {
+  margin-left: 2em;
 }

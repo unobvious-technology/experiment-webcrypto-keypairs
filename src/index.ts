@@ -1,3 +1,4 @@
+import "./styles.css";
 import { Encode, Decode } from "./hex";
 import KeyManager from "./key-manager";
 
@@ -35,7 +36,7 @@ function bootstrap() {
     document.getElementById("import-keypair")
   );
 
-  function showMessage(message, state) {
+  function showMessage(message, state?) {
     messageOutput.textContent = message;
     if (state) {
       console.log(message);
@@ -46,7 +47,9 @@ function bootstrap() {
   function on(el, event, callback) {
     el.addEventListener(event, (ev) => {
       ev.preventDefault();
-      showMessage("Working...", null);
+      if (event === "click") {
+        showMessage("Working...");
+      }
 
       callback();
     });

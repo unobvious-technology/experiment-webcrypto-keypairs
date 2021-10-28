@@ -6,6 +6,11 @@
   </head>
 
   <body>
+    <a
+      id="forkme_banner"
+      href="https://github.com/unobvious-technology/experiment-webcrypto-keypairs"
+      >View on GitHub</a
+    >
     <div id="app">
       <h1>Public/Private Keypair with Password Encryption</h1>
       <p>
@@ -74,11 +79,12 @@
         <em><strong>Incorrect salt == incorrect user key</strong></em>
       </p>
 
-      <h2>Example Usage</h2>
+      <h2>Example Usage <button id="reset">Reset</button></h2>
       <div class="keypair">
+        <p id="message-output">Initializing...</p>
         <p>
           <label for="password"
-            >Password:
+            ><span>Password: </span>
             <input
               type="password"
               id="password"
@@ -88,19 +94,16 @@
         </p>
         <p>
           <label for="salt"
-            >Salt: <input type="text" id="salt" style="width: 18em;" /></label
+            ><span>Salt: </span
+            ><input type="text" id="salt" style="width: 18em;" /></label
           ><br />
         </p>
         <p>
-          <button id="reset">Reset</button>
-          <br /><br />
           <button id="generate-userkey">Generate User Key</button>
           <button id="generate-keypair" disabled>Generate Keypair</button>
           <button id="export-keypair" disabled>Export Keypair</button>
           <button id="import-keypair" disabled>Import Keypair</button>
         </p>
-
-        <p id="message-output">Ready</p>
 
         <h4>Public Key (Hex Encoded)</h4>
         <textarea id="public-key" cols="64" rows="16"></textarea>
