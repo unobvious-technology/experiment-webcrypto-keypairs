@@ -79,6 +79,58 @@
         <em><strong>Incorrect salt == incorrect user key</strong></em>
       </p>
 
+      <h2>Use Case & Security Considerations</h2>
+
+      <p>
+        This library has been designed to have a very simple interface &
+        implementation. The use-case is for making it easier for users to use
+        end-to-end encryption on the web, particularly without requiring the
+        user to save private key files or always use the same device.
+        <br /><br />
+        For the average user, they don't know about keypairs or public/private
+        key cryptography, they're used to using either social networks or
+        passwords for logging in to applications. The goal is to keep the user
+        experience fairly similar whilst also allowing for end-to-end
+        encryption.
+        <br /><br />
+        The intended use is to allow a user to supply the email/username and
+        password, and then gain access to strong cryptographic keys which are
+        stored by an API. The API should also have access secured, ideally using
+        email verification and a PAKE-based authentication mechanism (SRP6a,
+        BS-SPEKE, OPAQUE), and the encrypted keys should only be retrievable
+        after authentication.
+        <strong>
+          It is imperative that the password is not transmitted to the server.
+        </strong>
+        <br /><br />
+        <strong>Threat modelling:</strong> The biggest weakness in this system
+        is that the private key is only secured as strongly as the users'
+        password. though we take steps to make bruteforcing passwords difficult,
+        by using high iterations with PBKDF2 and a unique salt per user, this
+        only slows down an attacker, so strong passwords should be encouraged.
+        <br /><br />
+        We also rely on the browser's implementation of WebCrypto to be reliable
+        and secure, and that the page has been served with appropriate security
+        to ensure no malicious scripts are interacting with the javascript
+        running on the page. If your browser is compromised, then all bets are
+        off. Whilst it is widely acknowledged that installable applications can
+        have better security,
+        <abbr
+          title="See how Apple and Google ban Adult oriented applications from their App Stores"
+          >sometimes the web is the best platform available</abbr
+        >.
+
+        <br /><br />
+
+        We generate a symmetric key derived from the user-supplied password,
+        which can only be accessed via the WebCrypto APIs for wrapping and
+        unwrapping keys, and cannot be exported. We use that symmetric
+        encryption key to encrypt a public/private keypair, such that the
+        private key can be stored by an API Server without compromising user
+        security too much, as for the average user, managing security keys is
+        difficult. <br /><br />
+      </p>
+
       <h2>Example Usage <button id="reset">Reset</button></h2>
       <div class="keypair">
         <p id="message-output">Initializing...</p>
